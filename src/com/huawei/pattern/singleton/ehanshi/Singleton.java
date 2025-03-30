@@ -1,4 +1,4 @@
-package singleton.ehanshi;
+package com.huawei.pattern.singleton.ehanshi;
 
 public class Singleton {
 

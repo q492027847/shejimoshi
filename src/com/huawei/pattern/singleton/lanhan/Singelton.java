@@ -1,4 +1,4 @@
-package singleton.lanhan;
+package com.huawei.pattern.singleton.lanhan;
 
 public class Singelton {
 

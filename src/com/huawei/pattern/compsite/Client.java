@@ -1,4 +1,4 @@
-package compsite;
+package com.huawei.pattern.compsite;
 
 import java.util.ArrayList;
 import java.util.List;

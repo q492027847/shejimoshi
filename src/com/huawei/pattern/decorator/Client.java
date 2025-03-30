@@ -1,4 +1,4 @@
-package decorator;
+package com.huawei.pattern.decorator;
 
 // 装饰器模式
 public class Client {
