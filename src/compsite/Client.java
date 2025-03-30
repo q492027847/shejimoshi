@@ -3,6 +3,7 @@ package compsite;
 import java.util.ArrayList;
 import java.util.List;
 
+// 组合模式
 public class Client {
     public static void main(String[] args) {
         Component root = new Composite("root");
@@ -25,42 +26,37 @@ interface IComponent{
 }
 
 abstract class Component implements IComponent{
-    protected String name;
+    String name;
 
-    public Component(String name){
-        this.name = name;
-    }
+    abstract void add(IComponent component);
 
-    public abstract void add(IComponent component);
-
-    public abstract void remove(IComponent component);
+    abstract void remove(IComponent component);
 }
 
 class Composite extends Component{
 
-    private List<IComponent> children = new ArrayList<>();
+    List<IComponent> child = new ArrayList<>();
 
     public Composite(String name){
-        super(name);
+        this.name = name;
+    }
+
+    @Override
+    void add(IComponent component) {
+        child.add(component);
+    }
+
+    @Override
+    void remove(IComponent component) {
+        child.remove(component);
     }
 
     @Override
     public void display() {
         System.out.println(name);
-        for (IComponent child : children) {
-            child.display();
+        for (IComponent component : child) {
+            component.display();
         }
-
-    }
-
-    @Override
-    public void add(IComponent component) {
-        children.add(component);
-    }
-
-    @Override
-    public void remove(IComponent component) {
-        children.remove(component);
     }
 }
 
@@ -71,7 +67,6 @@ class Left implements IComponent{
     public Left(String name){
         this.name = name;
     }
-
     @Override
     public void display() {
         System.out.println(name);
